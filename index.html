@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="img/favicon.png" sizes="32x32">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ambiente y Sustentabilidad - Unidad 1 y 2</title>
+
+  <!-- Fuentes (opcional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Puedes cambiar la fuente por la que más te guste -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Paleta de colores inspirada en tonos verdes y neutros */
+      --color-fondo: #E6F2E6;        /* Verde muy claro de fondo */
+      --color-primario: #89A892;     /* Verde suave para elementos principales */
+      --color-secundario: #6C8B72;   /* Verde más oscuro para detalles */
+      --color-texto: #2F3E2B;        /* Color principal de texto */
+      --color-blanco: #FFFFFF;
+      --color-sombra: rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: var(--color-fondo);
+      color: var(--color-texto);
+    }
+
+    /* ---------- Encabezado (Hero) ---------- */
+    header {
+      position: relative;
+      width: 100%;
+      min-height: 70vh;
+      background: url("img/hero-bg.jpg") no-repeat center/cover; /* Imagen de fondo (ilustración ambiental) */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+    header::after {
+      /* Capa semitransparente para mejorar la legibilidad del texto */
+      content: "";
+      position: absolute;
+      top: 0; left: 0; 
+      width: 100%; 
+      height: 100%;
+      background-color: rgba(230, 242, 230, 0.6);
+      z-index: 1;
+    }
+    header .hero-content {
+      position: relative;
+      z-index: 2; /* Para que el texto quede por encima de la capa */
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    header h1 {
+      font-size: 3rem;
+      color: var(--color-secundario);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    header p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #2F3E2B;
+    }
+
+    /* ---------- Barra de navegación ---------- */
+    nav {
+      width: 100%;
+      background-color: var(--color-primario);
+      box-shadow: 0 2px 5px var(--color-sombra);
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+      padding: 10px 0;
+      margin: 0;
+    }
+    nav li {
+      margin: 0 15px;
+    }
+    nav a {
+      color: var(--color-blanco);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: var(--color-secundario);
+    }
+
+    /* ---------- Secciones ---------- */
+    section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2rem;
+      color: var(--color-secundario);
+      position: relative;
+    }
+    section h2::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 3px;
+      background-color: var(--color-secundario);
+      margin: 10px auto 0 auto;
+      border-radius: 2px;
+    }
+
+    /* ---------- Sitios de Interés, Noticias, etc. en tarjetas ---------- */
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .card {
+      background-color: var(--color-blanco);
+      border-radius: 8px;
+      box-shadow: 0 4px 8px var(--color-sombra);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card img {
+      width: 60px;
+      margin-bottom: 15px;
+    }
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: var(--color-secundario);
+    }
+    .card a {
+      display: block;
+      margin-top: 5px;
+      color: var(--color-texto);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .card a:hover {
+      color: var(--color-secundario);
+    }
+
+    /* ---------- Recursos Descargables, Referencias ---------- */
+    .list-container ul {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+    .list-container li {
+      margin: 10px 0;
+    }
+    .list-container a {
+      color: var(--color-secundario);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .list-container a:hover {
+      text-decoration: underline;
+    }
+
+    /* ---------- Sección de Video ---------- */
+    .video-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+    .video-container iframe {
+      width: 100%;
+      max-width: 560px;
+      height: 315px;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px var(--color-sombra);
+    }
+
+    /* ---------- Sección de Infografía ---------- */
+    .infografia-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .infografia-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px var(--color-sombra);
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      background-color: var(--color-primario);
+      color: var(--color-blanco);
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    /* ---------- Responsividad ---------- */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      nav ul {
+        flex-direction: column;
+      }
+      nav li {
+        margin: 5px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Encabezado con imagen de fondo -->
+  <header>
+    <div class="hero-content">
+      <h1>Ambiente y Sustentabilidad</h1>
+      <p>Unidad 1 y 2 - Explorando el impacto del ser humano en el planeta y estrategias para su conservación</p>
+    </div>
+  </header>
+
+  <!-- Barra de navegación -->
+  <nav>
+    <ul>
+      <li><a href="#sitios">Sitios de Interés</a></li>
+      <li><a href="#noticias">Noticias</a></li>
+      <li><a href="#recursos">Recursos</a></li>
+      <li><a href="#referencias">Referencias</a></li>
+      <li><a href="#video">Video</a></li>
+      <li><a href="#infografia">Infografía</a></li>
+    </ul>
+  </nav>
+  
+  <section id="resumen-pdf" class="resumen-pdf">
+    <h2>Resumen de la Unidad 1 y 2</h2>
+    <p>
+      En la <strong>Unidad 1</strong>, se presentan los principios básicos de la naturaleza y la importancia de la 
+      interacción entre los componentes físicos (atmósfera, hidrosfera y litosfera) y los componentes biológicos 
+      (seres vivos) que constituyen la Tierra como un gran ecosistema. Se profundiza en conceptos como 
+      <em>flujo de energía</em>, <em>ciclos biogeoquímicos</em>, <em>homeostasis</em> y la <em>regla de la sustentabilidad</em>, 
+      resaltando cómo los seres humanos pueden impactar o equilibrar estos procesos.
+    </p>
+    <p>
+      <br>
+    </p>
+    <p>
+      En la <strong>Unidad 2</strong>, se abordan los fundamentos del desarrollo sustentable, destacando la 
+      relación entre las actividades humanas y la conservación de los recursos naturales. Además, se introducen 
+      conceptos sobre <em>indicadores de sustentabilidad</em>, el <em>manejo responsable de los ecosistemas</em> y las 
+      estrategias globales (como la Agenda 21 y la Declaración del Milenio) que buscan equilibrar las necesidades 
+      humanas con la protección del medio ambiente.
+    </p>
+    <p>
+      <br>
+    </p>
+    <p>
+      En conjunto, estas unidades enfatizan la urgencia de adoptar prácticas que garanticen el bienestar humano 
+      y la protección de la biodiversidad, invitando a reflexionar sobre el crecimiento poblacional, el consumo 
+      de recursos y la responsabilidad compartida para lograr un futuro sostenible.
+    </p>
+  </section>
+  <!-- Sección: Sitios de Interés -->
+  <section id="sitios">
+    <h2>Sitios de Interés</h2>
+    <div class="cards-container">
+      <!-- Tarjeta 1 -->
+      <div class="card">
+        <img src="img/icon-onu.png" alt="Icono de sitio">
+        <h3>ONU Medio Ambiente</h3>
+        <a href="https://www.unep.org/" target="_blank">Visitar sitio</a>
+      </div>
+      <!-- Tarjeta 2 -->
+      <div class="card">
+        <img src="img/icon-wwf.png" alt="Icono de sitio">
+        <h3>WWF - Fondo Mundial</h3>
+        <a href="https://www.worldwildlife.org/" target="_blank">Visitar sitio</a>
+      </div>
+      <!-- Tarjeta 3 -->
+      <div class="card">
+        <img src="img/icon-greenpeace.png" alt="Icono de sitio">
+        <h3>Greenpeace</h3>
+        <a href="https://www.greenpeace.org/international/" target="_blank">Visitar sitio</a>
+      </div>
+      <!-- Tarjeta 4 -->
+      <div class="card">
+        <img src="img/icon-ipcc.png" alt="Icono de sitio">
+        <h3>IPCC - Cambio Climático</h3>
+        <a href="https://www.ipcc.ch/" target="_blank">Visitar sitio</a>
+      </div>
+      <!-- Tarjeta 5 -->  
+      <div class="card">
+        <img src="img/icon-semanart.png" alt="Icono de sitio">
+        <h3>SEMARNAT (México)</h3>
+        <a href="https://www.gob.mx/semarnat" target="_blank">Visitar sitio</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección: Noticias -->
+  <section id="noticias">
+    <h2>Noticias</h2>
+    <div class="cards-container">
+      <div class="card">
+        <img src="img/icon-ConferenONU.png" alt="Icono de noticias">
+        <h3>Informe ONU 2024</h3>
+        <a href="https://www.un.org/es/annualreport">Ver más detalles</a>
+      </div>
+      <div class="card">
+        <img src="img/icon-NuevoLeon.png" alt="Icono de noticias">
+        <h3>Calidad del Aire Nuevo Leon</h3>
+        <a href="http://aire.nl.gob.mx/map_calidad.html">Ver más detalles</a>
+      </div>
+      <div class="card">
+        <img src="img/icon-Energy.png" alt="Icono de noticias">
+        <h3>Uso de la Energia</h3>
+        <a href="https://www.un.org/es/actnow/home-energy">Ver más detalles</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección: Recursos Descargables -->
+  <section id="recursos">
+    <h2>Recursos Descargables</h2>
+    <div class="list-container">
+      <ul>
+        <li><a href="Guia_Sustentabilidad.pdf" download>Guía de sustentabilidad </a></li>
+        <li><a href="Resumen_Ecosistemas.pdf" download>Resumen sobre ecosistemas </a></li>
+        <li><a href="Ciclo_Carbono.pdf" download>Ciclo del carbono y su impacto ambiental </a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Sección: Referencias -->
+  <section id="referencias">
+    <h2>Referencias</h2>
+    <div class="list-container">
+      <ul>
+        <li>Margulis, L. (1998). <em>Simbiosis planetaria: La vida en la Tierra</em>.</li>
+        <li>Miller, T. G. (1994). <em>Living in the Environment</em>.</li>
+        <li>Schlesinger, W. H. (1991). <em>Biogeochemistry: An Analysis of Global Change</em>.</li>
+        <li>ONU - Informe sobre el Estado del Medio Ambiente 2023.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Sección: Video Relacionado -->
+  <section id="video">
+    <h2>Video Relacionado</h2>
+    <div class="video-container">
+      <!-- Reemplazar VIDEO_ID por el ID del video de YouTube -->
+      <iframe 
+        src="https://www.youtube.com/embed/gLTyYygntL4" 
+        title="Video sobre Sustentabilidad" 
+        allowfullscreen>
+      </iframe>
+    </div>
+  </section>
+
+  <!-- Sección: Infografía -->
+  <section id="infografia">
+    <h2>Infografía sobre Sustentabilidad</h2>
+    <div class="infografia-container">
+      <!-- Incrusta aquí tu imagen de infografía -->
+      <img src="img/infografia-sustentabilidad.jpg" alt="Infografía de Sustentabilidad">
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Ambiente y Sustentabilidad. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>
